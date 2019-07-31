@@ -5,7 +5,7 @@ class Shunting_Algorithm:
 
     @staticmethod
     def precedence(op1, op2):
-        precedences = {'+': 0, '-': 0, '*': 1, '/': 1}
+        precedences = {'+': 0, '-': 0, '*': 1, '/': 1, '^':2}
         return precedences[op1] > precedences[op2]
 
     @staticmethod
@@ -36,6 +36,8 @@ class Shunting_Algorithm:
                     new = left * right
                 elif i == '/':
                     new = left / right
+                elif i == '^':
+                    new = left ** right
                 else:
                     return None
                 numbers.push(new)
@@ -72,5 +74,5 @@ class Shunting_Algorithm:
         return output
 
 
-exp = '( 53 + 3 ) + 3 * 4 / 4'
+exp = '( 53 + 3 ^ 2 ) + 3 * 4 / 4 '
 print(Shunting_Algorithm.evaluate(exp))
