@@ -46,8 +46,8 @@ class Shunting_Algorithm:
     def postfix(exp):
         output = Queue()
         operators = Stack()
-
-        for i in exp:
+        newexp = exp.split()
+        for i in newexp:
             if Shunting_Algorithm.isnum(i):
                 output.enqueue(i)
             elif i == '(':
@@ -72,5 +72,5 @@ class Shunting_Algorithm:
         return output
 
 
-exp = '(5+3)+3*4/4'
+exp = '( 53 + 3 ) + 3 * 4 / 4'
 print(Shunting_Algorithm.evaluate(exp))
